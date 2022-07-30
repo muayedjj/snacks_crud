@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+    <nav>
+        <h3><a href="{% url 'snack_list' %}">Snacks List</a></h3>
+    </nav>
+</header>
+<h1>Delete Snack</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h2>Are you sure you want to delete {{ snack.title | upper }}?</h2>
+    <input type="submit" value="Yes">
+</form>
+{% endblock content %}
